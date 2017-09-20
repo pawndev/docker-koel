@@ -12,6 +12,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && npm install -g yarn
 
+RUN apt-get update && apt-get install inotify-tools -yq
+
 ## php conf
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -yq \
@@ -87,8 +89,11 @@ VOLUME /music
 
 COPY env .env
 COPY run.sh run.sh
+COPY watcher.sh watcher.sh
 
 USER root
+
+RUN chmod +x watcher.sh
 
 ADD 000-koel.conf /etc/apache2/sites-enabled/000-koel.conf
 

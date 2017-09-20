@@ -4,4 +4,9 @@ echo "Fixing permissions on storage directory"
 chown -R koel:koel /app/koel/storage
 chmod -R g+w /app/koel/storage #to allow www-data to write logs
 # exec apache2-foreground
+
+./watcher.sh &
+bg
+disown -h
+
 php artisan serve --host=0.0.0.0
