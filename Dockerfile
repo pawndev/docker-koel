@@ -10,7 +10,7 @@ RUN apt-get update \
     && apt-get install -y -q nodejs \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && npm install -g yarn
+    && npm install -g yarn@0.27.5
 
 RUN apt-get update && apt-get install inotify-tools -yq
 
