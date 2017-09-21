@@ -1,6 +1,7 @@
 version: '2'
 services:
   db:
+    container_name: koel_db
     image: mysql:5
     environment:
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
@@ -10,6 +11,7 @@ services:
     network_mode: bridge
 
   koel:
+    container_name: koel_webapp
     build: .
     links:
       - db
