@@ -25,3 +25,8 @@ services:
       - LETSENCRYPT_HOST=$LETSENCRYPT_HOST
       - LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL
     network_mode: bridge
+    labels:
+      - rap.host=$VIRTUAL_HOST
+      - rap.port=$VIRTUAL_PORT
+      - rap.le_host=$LETSENCRYPT_HOST
+      - rap.le_email=$LETSENCRYPT_EMAIL
